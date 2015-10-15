@@ -12,6 +12,8 @@ var selectedAddItem;
 var selectedDeleteItem;
 var flagPopup;
 
+var result = [];
+
 $(document).ready(function () {
 
     /* Call to Initial 'products' array */
@@ -36,24 +38,63 @@ $(document).ready(function () {
 
     /* Button Click: Show Cart */
     $('#showCart').click(function () {
-        if ($(".alert").length !== 0) {
-            $('.alert').remove();
+        var i = 0;
+        for (var index in products) {
+            result[i] = index;
+            i++;
         }
-        var text = '<div class="alert alert-success alert-dismissible" id="cartResult" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'
-                + cart.toString() +
-                '</div>';
-        $(text).insertAfter($('#showCart')).show('slow');
+        var cartPopTime = setInterval(cartpop, 5000);
     });
-
-
 });
 
 
 function popUpAlert() {
     alert('Hey there! Are you still planning to buy something?');
 }
+
 var inactiveTime = setInterval(popUpAlert, 30000);
+
+
+function getconvCart() {
+    var that = this;
+    var lastResult = -1;
+    var flag = true;
     
+    this.get = function () {
+        var i = 0;
+        
+        for (i = lastResult + 1; i < result.length; i++) {
+            if (!isNaN(cart[result[i]]) && flag === true) {
+                lastResult = i;
+                flag = false;
+            }
+        }
+        
+        if (flag === true) {
+            for (i = -1; i < result.length; i++) {
+                if (!isNaN(cart[result[i]]) && flag === true) {
+                    lastResult = i;
+                    flag = false;
+                }
+            }
+        }
+        flag = true;
+    };
+    this.get();
+    
+    return {
+        get: function() { that.get(); },
+        result: function() { return lastResult }
+    };
+};
+
+var returngetconvCart = getconvCart();
+var cartpop = function() {
+    returngetconvCart.get();
+    var point = returngetconvCart.result();
+    alert("Name:                          Number:\n" + result[point] + "                   " + cart[result[point]]);
+};
+
 /* Add to cart function */
 function addToCart(selectedAddItem) {
 
@@ -62,10 +103,11 @@ function addToCart(selectedAddItem) {
     else
         cart[selectedAddItem]++;
     products[selectedAddItem]--;
-    
+
     clearInterval(inactiveTime);
     inactiveTime = setInterval(popUpAlert, 30000);
-};
+}
+;
 
 /* Remove from cart function */
 function removeFromCart(selectedDeleteItem) {
@@ -89,20 +131,6 @@ function getProduct(pArray) {
         products[pArray[i + 1].innerHTML] = 100;
     }
 }
-
-cart.toString = function () {
-    var result;
-    var index;
-    result = "<table><tr><td>Product Name</td><td>Number</td></tr>";
-    for (index in cart) {
-        if (!isNaN(cart[index])) {
-            result = result + '<tr><td>' + index + '</td><td>' + cart[index] + '</td></tr>';
-        }
-    }
-    result = result + '</table>';
-    return result;
-};
-
 
 
 

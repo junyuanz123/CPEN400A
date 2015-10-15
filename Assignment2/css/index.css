@@ -139,21 +139,6 @@ div.CartHidden {
     top: 90px;
 }
 
-
-/* alert */
-#cartResult {
-    position: fixed;
-    top: 250px;
-    left: 400px;
-    width: 500px;
-    text-align: center;
-    z-index: 1;
-}
-#cartResult table {
-    width: 450px;
-    text-align: center;
-}
-
 /* Show Cart */
 #showCart {
     position: fixed;
