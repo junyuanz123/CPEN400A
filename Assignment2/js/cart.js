@@ -13,6 +13,7 @@ var selectedDeleteItem;
 var flagPopup;
 
 var result = [];
+var inactiveTime = 0;
 
 $(document).ready(function () {
 
@@ -43,8 +44,10 @@ $(document).ready(function () {
             result[i] = index;
             i++;
         }
-        var cartPopTime = setInterval(cartpop, 5000);
+        var cartPopTime = setInterval(cartpop, 30000); //30s
+        inactiveTime = 0;
     });
+    
 });
 
 
@@ -52,7 +55,7 @@ function popUpAlert() {
     alert('Hey there! Are you still planning to buy something?');
 }
 
-var inactiveTime = setInterval(popUpAlert, 30000);
+var popUp = setInterval(popUpAlert, 30000);
 
 
 function getconvCart() {
@@ -104,8 +107,9 @@ function addToCart(selectedAddItem) {
         cart[selectedAddItem]++;
     products[selectedAddItem]--;
 
-    clearInterval(inactiveTime);
-    inactiveTime = setInterval(popUpAlert, 30000);
+    clearInterval(popUp);
+    popUp = setInterval(popUpAlert, 30000);
+    inactiveTime = 0;
 }
 ;
 
@@ -121,8 +125,9 @@ function removeFromCart(selectedDeleteItem) {
     }
     if (cart[selectedDeleteItem] === 0)
         cart[selectedDeleteItem] = undefined;
-    clearInterval(inactiveTime);
-    inactiveTime = setInterval(popUpAlert, 30000);
+    clearInterval(popUp);
+    popUp = setInterval(popUpAlert, 30000);
+    inactiveTime = 0;
 }
 
 /* Initial 'product' array */
@@ -133,4 +138,8 @@ function getProduct(pArray) {
 }
 
 
+function startTime() {
+    inactiveTime ++;
+    var t = setTimeout(startTime, 1000);
+};
 
