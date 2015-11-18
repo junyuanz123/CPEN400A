@@ -1,0 +1,63 @@
+{ 
+    "_id" : ObjectId("564c3e0063df594404a11b18"), 
+    "KeyboardCombo" : {
+        "price" : NumberInt(32), 
+        "quantity" : NumberInt(897), 
+        "url" : "https://cpen400a.herokuapp.com/images/KeyboardCombo.png"
+    }, 
+    "Mice" : {
+        "price" : NumberInt(6), 
+        "quantity" : NumberInt(945), 
+        "url" : "https://cpen400a.herokuapp.com/images/Mice.png"
+    }, 
+    "PC1" : {
+        "price" : NumberInt(337), 
+        "quantity" : NumberInt(938), 
+        "url" : "https://cpen400a.herokuapp.com/images/PC1.png"
+    }, 
+    "PC2" : {
+        "price" : NumberInt(397), 
+        "quantity" : NumberInt(914), 
+        "url" : "https://cpen400a.herokuapp.com/images/PC2.png"
+    }, 
+    "PC3" : {
+        "price" : NumberInt(370), 
+        "quantity" : NumberInt(922), 
+        "url" : "https://cpen400a.herokuapp.com/images/PC3.png"
+    }, 
+    "Tent" : {
+        "price" : NumberInt(37), 
+        "quantity" : NumberInt(950), 
+        "url" : "https://cpen400a.herokuapp.com/images/Tent.png"
+    }, 
+    "Box1" : {
+        "price" : NumberInt(5), 
+        "quantity" : NumberInt(970), 
+        "url" : "https://cpen400a.herokuapp.com/images/Box1.png"
+    }, 
+    "Box2" : {
+        "price" : NumberInt(5), 
+        "quantity" : NumberInt(968), 
+        "url" : "https://cpen400a.herokuapp.com/images/Box2.png"
+    }, 
+    "Clothes1" : {
+        "price" : NumberInt(25), 
+        "quantity" : NumberInt(955), 
+        "url" : "https://cpen400a.herokuapp.com/images/Clothes1.png"
+    }, 
+    "Clothes2" : {
+        "price" : NumberInt(21), 
+        "quantity" : NumberInt(947), 
+        "url" : "https://cpen400a.herokuapp.com/images/Clothes2.png"
+    }, 
+    "Jeans" : {
+        "price" : NumberInt(38), 
+        "quantity" : NumberInt(915), 
+        "url" : "https://cpen400a.herokuapp.com/images/Jeans.png"
+    }, 
+    "Keyboard" : {
+        "price" : NumberInt(22), 
+        "quantity" : NumberInt(929), 
+        "url" : "https://cpen400a.herokuapp.com/images/Keyboard.png"
+    }
+}
